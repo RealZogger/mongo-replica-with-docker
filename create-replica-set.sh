@@ -64,6 +64,9 @@ function configMongoContainer {
 
   # change folder owner to the current container user
   docker exec -i $1 bash -c 'chown -R mongodb:mongodb /data'
+
+  # set appropriate permissiongs on the key file
+  docker exec -i $1 bash -c 'chmod 600 /data/keyfile/mongo-keyfile'
 }
 
 # @params container volume
